@@ -5,7 +5,8 @@
 }
 :root {
     --green-color: #b8fb3c;
-    --bg-color: rgb(49, 7, 77);
+    --snake-color: rgb(0, 107, 0);
+    --food-color: red;
     --bg-image: url('./assets/bg.png');
     --font:  "Science Gothic", sans-serif;
 }
@@ -66,9 +67,11 @@ section {
     font-size: 0.7rem;
 }
 .fill {
-    background: var(--bg-color);
+    background: var(--snake-color);
 }
-
+.food {
+    background: var(--food-color);    
+}
 
 
 
