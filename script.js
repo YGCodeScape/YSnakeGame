@@ -9,7 +9,8 @@ const blocks = []
 const snake = [
     {x: 0, y: 3}
 ]
-let direction = 'down'
+let direction = 'right'
+let intervalId = null
 
 for(let r = 0; r < rows; r++ ) {
     for(let c = 0; c < cols; c++) {
@@ -27,7 +28,7 @@ function render() {
     })
 }
 
-setInterval(() => {
+intervalId = setInterval(() => {
     let head = null
     if(direction === "left") {
         head = {x: snake[0].x, y: snake[0].y-1}
@@ -40,6 +41,11 @@ setInterval(() => {
     }
     else if(direction === "down") {
         head = {x: snake[0].x+1, y: snake[0].y}
+    }
+
+    if(head.x < 0 || head.x >= rows || head.y < 0 || head.y >= cols) {
+        alert("Game Over")
+        clearInterval(intervalId)
     }
 
     snake.forEach(segment => {
