@@ -5,6 +5,14 @@ const model = document.querySelector('.model');
 const startGameModel = document.querySelector('.start-game');
 const gameOverModel = document.querySelector('.game-over');
 
+const highScoreElement = document.querySelector('#high-score');
+const scoreElement = document.querySelector('#score');
+const timeElement = document.querySelector('#time');
+
+let highScore = 0
+let score = 0
+let time = 0 
+
 const blockHeight = 50
 const blockWidth = 50
 
@@ -84,20 +92,26 @@ function render() {
         head = {x: snake[0].x+1, y: snake[0].y}
     }
 
+    // check if snake hits wall then over game
     if(head.x < 0 || head.x >= rows || head.y < 0 || head.y >= cols) {
         clearInterval(intervalId)
         model.style.display = "flex"
         startGameModel.style.display = "none"
         gameOverModel.style.display = "flex"
+        score = 0
+        scoreElement.innerHTML = score
         return;
     }
 
+    // check if snake hits food block then re render the food
     if(head.x == food.x && head.y == food.y) {
         blocks[`${food.x}-${food.y}`].classList.remove("food");
          food = {x: Math.floor(Math.random()* rows), y: Math.floor(Math.random()* cols)}
         blocks[`${food.x}-${food.y}`].classList.add("food");
 
         snake.unshift(head)
+        score += 10
+        scoreElement.innerHTML = score
     }
 
     snake.forEach(segment => {
