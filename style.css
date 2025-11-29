@@ -50,7 +50,33 @@ section {
     border: 2px solid rgba(241, 241, 241, 0.712);
     border-radius: 8px;
     flex-grow: 1;
+    padding: 2px;
+    overflow: hidden;
     background-color: rgba(13, 13, 14, 0.283);
     -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(30px, 1fr));
+}
+.block {
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgba(241, 241, 241, 0.712);
+}
+
+
+
+
+@media (max-width: 786px) {
+    section {
+        padding: 1.5rem;
+    }
+    .infos .info {
+        font-size: 0.6rem;
+    }
+    .board {
+        height: 70%;
+        flex-grow: unset;
+    }
 }
