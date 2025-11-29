@@ -6,9 +6,7 @@ const cols = Math.floor(board.clientWidth / blockWidth)
 const rows = Math.floor(board.clientHeight / blockHeight)
 
 const blocks = []
-const snake = [
-    {x: 0, y: 3}
-]
+const snake = [ {x: 0, y: 3} ]
 let direction = 'right'
 let intervalId = null
 let food = {x: Math.floor(Math.random()* rows), y: Math.floor(Math.random()* cols)}
@@ -18,10 +16,24 @@ for(let r = 0; r < rows; r++ ) {
         const block = document.createElement('div');
         block.classList.add('block');
         board.appendChild(block);  
-        // block.innerText = `${r}${c}`;
         blocks[`${r}-${c}`] = block;
     }
 }
+
+addEventListener('keydown', (event) => {
+    if(event.key === "ArrowLeft") {
+        direction = "left"
+    }
+    else if(event.key === "ArrowRight") {
+        direction = "right"
+    }
+    else if(event.key === "ArrowUp") {
+        direction = "up"
+    }
+    else if(event.key === "ArrowDown") {
+        direction = "down"
+    }
+})
 
 function render() {
     let head = null
@@ -66,21 +78,6 @@ function render() {
     })
 }
 
-intervalId = setInterval(() => {
-    render()
-}, 400)
-
-addEventListener('keydown', (event) => {
-    if(event.key === "ArrowLeft") {
-        direction = "left"
-    }
-    else if(event.key === "ArrowRight") {
-        direction = "right"
-    }
-    else if(event.key === "ArrowUp") {
-        direction = "up"
-    }
-    else if(event.key === "ArrowDown") {
-        direction = "down"
-    }
-})
+// intervalId = setInterval(() => {
+//     render()
+// }, 400)
