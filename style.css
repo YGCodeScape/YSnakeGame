@@ -5,6 +5,7 @@
 }
 :root {
     --green-color: #b8fb3c;
+    --bg-color: rgb(49, 7, 77);
     --bg-image: url('./assets/bg.png');
     --font:  "Science Gothic", sans-serif;
 }
@@ -64,6 +65,9 @@ section {
     border-radius: 2px;
     font-size: 0.7rem;
 }
+.fill {
+    background: var(--bg-color);
+}
 
 
 
@@ -79,4 +83,8 @@ section {
         height: 50%;
         flex-grow: unset;
     }
+    /* .board {
+       grid-template-columns: repeat(auto-fill, minmax(30px, 1fr));
+       grid-template-rows: repeat(auto-fill, minmax(30px, 1fr));
+    } */
 }
