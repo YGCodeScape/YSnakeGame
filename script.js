@@ -1,4 +1,9 @@
 const board = document.querySelector('.board');
+const startBtn = document.querySelector('.start-btn');
+const model = document.querySelector('.model');
+const startGameModel = document.querySelector('.start-game');
+const gameOverModel = document.querySelector('.game-over');
+
 const blockHeight = 50
 const blockWidth = 50
 
@@ -20,6 +25,16 @@ for(let r = 0; r < rows; r++ ) {
     }
 }
 
+startBtn.addEventListener('click', () => {
+    model.style.display = "none"
+    intervalId = setInterval(() => {
+        render()
+    }, 300)
+})
+
+
+
+// map users pressed key, to direction
 addEventListener('keydown', (event) => {
     if(event.key === "ArrowLeft") {
         direction = "left"
@@ -54,8 +69,11 @@ function render() {
     }
 
     if(head.x < 0 || head.x >= rows || head.y < 0 || head.y >= cols) {
-        alert("Game Over")
         clearInterval(intervalId)
+        model.style.display = "flex"
+        startGameModel.style.display = "none"
+        gameOverModel.style.display = "flex"
+        return;
     }
 
     if(head.x == food.x && head.y == food.y) {
