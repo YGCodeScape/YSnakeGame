@@ -1,5 +1,6 @@
 const board = document.querySelector('.board');
 const startBtn = document.querySelector('.start-btn');
+const restartBtn = document.querySelector('.restart-btn');
 const model = document.querySelector('.model');
 const startGameModel = document.querySelector('.start-game');
 const gameOverModel = document.querySelector('.game-over');
@@ -11,7 +12,7 @@ const cols = Math.floor(board.clientWidth / blockWidth)
 const rows = Math.floor(board.clientHeight / blockHeight)
 
 const blocks = []
-const snake = [ {x: 0, y: 3} ]
+let snake = [ {x: 0, y: 3} ]
 let direction = 'right'
 let intervalId = null
 let food = {x: Math.floor(Math.random()* rows), y: Math.floor(Math.random()* cols)}
@@ -31,7 +32,22 @@ startBtn.addEventListener('click', () => {
         render()
     }, 300)
 })
+restartBtn.addEventListener("click", restartGame)
 
+function restartGame() {
+    blocks[`${food.x}-${food.y}`].classList.remove("food");
+    snake.forEach(segment => {
+        blocks[`${segment.x}-${segment.y}`].classList.remove("fill");
+    })
+
+    model.style.display = "none"
+    direction = "down"
+    snake = [ {x: 1, y: 3} ]
+    food = {x: Math.floor(Math.random() * rows), y: Math.floor(Math.random()* cols)}
+    intervalId = setInterval(() => {
+        render()
+    }, 300)
+}
 
 
 // map users pressed key, to direction
@@ -95,7 +111,3 @@ function render() {
         blocks[`${segment.x}-${segment.y}`].classList.add("fill");
     })
 }
-
-// intervalId = setInterval(() => {
-//     render()
-// }, 400)
