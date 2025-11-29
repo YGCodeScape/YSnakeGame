@@ -1,12 +1,18 @@
 const board = document.querySelector('.board');
-const blockHeight = 30
-const blockWidth = 30
+const blockHeight = 50
+const blockWidth = 50
 
 const cols = Math.floor(board.clientWidth / blockWidth)
 const rows = Math.floor(board.clientHeight / blockHeight)
 
-for(let b = 0; b < rows * cols; b++) {
-    const block = document.createElement('div');
-    block.classList.add('block');
-    board.appendChild(block);
+const blocks = []
+
+for(let r = 0; r < rows; r++ ) {
+    for(let c = 0; c < cols; c++) {
+        const block = document.createElement('div');
+        block.classList.add('block');
+        board.appendChild(block);  
+        block.innerText = `${r}${c}`;
+        blocks[`${r}-${c}`] = block;
+    }
 }
