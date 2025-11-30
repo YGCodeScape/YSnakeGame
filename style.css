@@ -7,7 +7,6 @@
     --green-color: #b8fb3c;
     --snake-color: rgb(0, 107, 0);
     --food-color: rgb(255, 97, 247);
-    --bg-image: url('./assets/bg.png');
     --font:  "Science Gothic", sans-serif;
 }
 html, body, main {
@@ -20,7 +19,7 @@ button {
     cursor: pointer;
 }
 body {
-    background: var(--bg-image);
+    background: url(./Assets/bg.png);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
