@@ -127,38 +127,41 @@ section {
     display: none;
     align-items: center;
     justify-content: center;
-    border: 2px solid red;
 }
 .controller-btns {
     position: relative;
     width: 250px;
     height: 250px;
-    border: 2px solid red;
+    border:2px solid rgb(255, 255, 255);
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(13, 13, 14, 0.283);
+    -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
+}
+.controller-btn {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .up-btn {
     position: absolute;
-    top: 0;
+    top: 8%;
 }
 .right-btn {
     position: absolute;
-    right: 0;
+    right: 8%;
 }
 .down-btn {
     position: absolute;
-    bottom: 0;
+    bottom: 8%;
 }
 .left-btn {
     position: absolute;
-    left: 0;
+    left: 8%;
 }
-.controller-btn i {
-    font-size: 5rem;
-}
-
 
 @media screen and (max-width: 480px) {
     section {
@@ -173,6 +176,14 @@ section {
     }
     .controllers {
         display: flex;
+    }
+    .up-btn, .down-btn {
+       width: 50px;
+       height: 70px;
+     }
+    .left-btn, .right-btn {
+       width: 80px;
+       height: 50px;
     }
 }
 
@@ -190,4 +201,16 @@ section {
     .controllers {
         display: flex;
     }
+    .controller-btns {
+        width: 220px;
+        height: 220px;
+    }
+    .up-btn, .down-btn {
+        width: 50px;
+        height: 60px; 
+     }
+    .left-btn, .right-btn {
+       width: 70px;
+       height: 50px;
+    } 
 }
