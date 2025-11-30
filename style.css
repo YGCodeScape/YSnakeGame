@@ -49,8 +49,6 @@ section {
           backdrop-filter: blur(10px);
 }
 .infos .info {
-     /* border: 2px solid rgba(241, 241, 241, 0.712);
-    border-radius: 8px; */
     padding: 0.5rem;
 }
 .board {
@@ -66,8 +64,6 @@ section {
     grid-template-rows: repeat(auto-fill, minmax(50px, 1fr));
 }
 .block {
-    /* width: 30px;
-    height: 30px; */
     border: 1px solid rgba(241, 241, 241, 0.521);
     border-radius: 2px;
     font-size: 0.7rem;
@@ -121,8 +117,50 @@ section {
     font-weight: 700;
     line-height: 70px;
 }
+/* working on controllers */
+.controllers {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid red;
+}
+.controller-btns {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    border: 2px solid red;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.up-btn {
+    position: absolute;
+    top: 0;
+}
+.right-btn {
+    position: absolute;
+    right: 0;
+}
+.down-btn {
+    position: absolute;
+    bottom: 0;
+}
+.left-btn {
+    position: absolute;
+    left: 0;
+}
+.controller-btn i {
+    font-size: 5rem;
+}
 
-@media (max-width: 786px) {
+
+@media screen and (max-width: 480px) {
     section {
         padding: 1.5rem;
     }
@@ -133,8 +171,23 @@ section {
         height: 50%;
         flex-grow: unset;
     }
-    /* .board {
-       grid-template-columns: repeat(auto-fill, minmax(30px, 1fr));
-       grid-template-rows: repeat(auto-fill, minmax(30px, 1fr));
-    } */
+    .controllers {
+        display: flex;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 800px) {
+    section {
+        padding: 1.5rem;
+    }
+    .infos .info {
+        font-size: 0.6rem;
+    }
+    .board {
+        height: 50%;
+        flex-grow: unset;
+    }
+    .controllers {
+        display: flex;
+    }
 }
