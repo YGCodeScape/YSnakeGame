@@ -142,11 +142,15 @@ section {
           backdrop-filter: blur(2px);
 }
 .controller-btn {
-    border: 3px solid white;
     border-radius: 8px;
     background: transparent;
     position: absolute;
+    font-size: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
 .up-btn {
     top: 5%;
 }
@@ -202,12 +206,15 @@ section {
         width: 220px;
         height: 220px;
     }
+    .controller-btn {
+        font-size: 60px;
+    }
     .up-btn, .down-btn {
-        width: 48px;
+        width: 60px;
         height: 70px; 
      }
     .left-btn, .right-btn {
        width: 73px;
-       height: 48px;
+       height: 60px;
     } 
 }
