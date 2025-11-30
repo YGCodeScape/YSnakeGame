@@ -142,25 +142,22 @@ section {
           backdrop-filter: blur(2px);
 }
 .controller-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    border: 3px solid white;
+    border-radius: 8px;
+    background: transparent;
+    position: absolute;
 }
 .up-btn {
-    position: absolute;
-    top: 8%;
+    top: 5%;
 }
 .right-btn {
-    position: absolute;
-    right: 8%;
+    right: 5%;
 }
 .down-btn {
-    position: absolute;
-    bottom: 8%;
+    bottom: 5%;
 }
 .left-btn {
-    position: absolute;
-    left: 8%;
+    left: 5%;
 }
 
 @media screen and (max-width: 480px) {
@@ -178,12 +175,12 @@ section {
         display: flex;
     }
     .up-btn, .down-btn {
-       width: 50px;
-       height: 70px;
+       width: 60px;
+       height: 75px;
      }
     .left-btn, .right-btn {
-       width: 80px;
-       height: 50px;
+       width: 85px;
+       height: 55px;
     }
 }
 
@@ -206,11 +203,11 @@ section {
         height: 220px;
     }
     .up-btn, .down-btn {
-        width: 50px;
-        height: 60px; 
+        width: 48px;
+        height: 70px; 
      }
     .left-btn, .right-btn {
-       width: 70px;
-       height: 50px;
+       width: 73px;
+       height: 48px;
     } 
 }
