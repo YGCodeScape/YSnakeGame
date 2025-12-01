@@ -71,7 +71,8 @@ section {
     background: var(--snake-color);
 }
 .food {
-    background: var(--food-color);    
+    background: var(--food-color);  
+    border-radius: 50%;  
 }
 .model {
     height: 100vh;
@@ -173,7 +174,7 @@ section {
 
 @media screen and (max-width: 480px) {
     section {
-        padding: 1.5rem;
+        padding: 1rem;
     }
     .infos .info {
         font-size: 0.6rem;
