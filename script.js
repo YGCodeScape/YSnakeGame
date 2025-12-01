@@ -33,8 +33,9 @@ let direction = 'right'
 let intervalId = null
 let timerIntervalId = null
 
-let food = {x: Math.floor(Math.random()* rows), y: Math.floor(Math.random()* cols)}
+let food = {x: Math.floor(Math.random()* rows), y: Math.floor(Math.random()* cols)}  // random values for food 
 
+// create board row and columns by screen 
 for(let r = 0; r < rows; r++ ) {
     for(let c = 0; c < cols; c++) {
         const block = document.createElement('div');
@@ -44,6 +45,7 @@ for(let r = 0; r < rows; r++ ) {
     }
 }
 
+// on start remove model and start render function and start timing
 startBtn.addEventListener('click', () => {
     model.style.display = "none"
     intervalId = setInterval(() => {
@@ -81,28 +83,29 @@ addEventListener('keydown', (event) => {
 })
 // map direction by button click
 function Controller() {
-upBtn.addEventListener('click', () => {
-    direction = "up"
-})
+     upBtn.addEventListener('click', () => {
+         direction = "up"
+     })
 
-rightBtn.addEventListener('click', () => {
-    direction = "right"
-})
+     rightBtn.addEventListener('click', () => {
+         direction = "right"
+     })
 
-downBtn.addEventListener('click', () => {
-    direction = "down"
-})
+     downBtn.addEventListener('click', () => {
+         direction = "down"
+     })
 
-leftBtn.addEventListener('click', () => {
-    direction = "left"
-})
+     leftBtn.addEventListener('click', () => {
+         direction = "left"
+     })
 }
 Controller()
 
+// render function to check direction and render snake by direction value 
 function render() {
     let head = null
     
-    blocks[`${food.x}-${food.y}`].classList.add("food");
+    blocks[`${food.x}-${food.y}`].classList.add("food");  // render food at random block 
 
     if(direction === "left") {
         head = {x: snake[0].x, y: snake[0].y-1}
