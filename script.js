@@ -9,6 +9,12 @@ const highScoreElement = document.querySelector('#high-score');
 const scoreElement = document.querySelector('#score');
 const timeElement = document.querySelector('#time');
 
+const upBtn = document.querySelector('.up-btn');
+const rightBtn = document.querySelector('.right-btn');
+const downBtn = document.querySelector('.down-btn');
+const leftBtn = document.querySelector('.left-btn');
+
+
 let highScore = localStorage.getItem("highScore") || 0
 let score = 0
 let time = `00-00`
@@ -73,10 +79,29 @@ addEventListener('keydown', (event) => {
         direction = "down"
     }
 })
+// map direction by button click
+function Controller() {
+upBtn.addEventListener('click', () => {
+    direction = "up"
+})
+
+rightBtn.addEventListener('click', () => {
+    direction = "right"
+})
+
+downBtn.addEventListener('click', () => {
+    direction = "down"
+})
+
+leftBtn.addEventListener('click', () => {
+    direction = "left"
+})
+}
+Controller()
 
 function render() {
     let head = null
-
+    
     blocks[`${food.x}-${food.y}`].classList.add("food");
 
     if(direction === "left") {
@@ -91,7 +116,7 @@ function render() {
     else if(direction === "down") {
         head = {x: snake[0].x+1, y: snake[0].y}
     }
-
+    
     // check if snake hits wall then over game
     if(head.x < 0 || head.x >= rows || head.y < 0 || head.y >= cols) {
         clearInterval(intervalId)
@@ -155,4 +180,3 @@ function restartGame() {
         render()
     }, 300)
 }
-
